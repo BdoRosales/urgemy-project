@@ -4,7 +4,7 @@
       <div class="flex-none">
         <img 
           src="https://urgemy.com/_assets/v11/f88b8a7ebbce1dd28ec73712242055db7e96a06f.svg" 
-          alt="urgemy-logo"
+          alt="logo"
           class="h-6 w-auto object-contain"
           style="height: 25px; width: 25px;" 
         >
