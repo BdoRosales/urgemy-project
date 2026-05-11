@@ -128,5 +128,14 @@
   </div>
 </section>
 
+<section>
+<div class="w-full md:w-1/2 relative min-h-400 md:min-h-full"></div>
+<img 
+src="https://urgemy.com/_assets/v11/f439854971cb4be00ebcf951910d74e7dc22c3a9.png?w=2048" 
+alt="Doctor"
+class="w-full h-full object-cover"
+>
+</section>
+
   </div>
 </template>
