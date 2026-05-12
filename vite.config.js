@@ -8,5 +8,5 @@ export default defineConfig({
     vue(),
     tailwindcss(),
   ],
-  base: '/urgemy-project/', // <-- AGREGA ESTA LÍNEA
+  base: '/urgemy-project/', 
 })
