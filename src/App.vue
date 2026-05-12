@@ -128,13 +128,128 @@
   </div>
 </section>
 
-<section>
-<div class="w-full md:w-1/2 relative min-h-400 md:min-h-full"></div>
-<img 
-src="https://urgemy.com/_assets/v11/f439854971cb4be00ebcf951910d74e7dc22c3a9.png?w=2048" 
-alt="Doctor"
-class="w-full h-full object-cover"
->
+<section class="flex justify-center">
+  <img 
+    src="https://urgemy.com/_assets/v11/f439854971cb4be00ebcf951910d74e7dc22c3a9.png?w=2048" 
+    alt="Doctor"
+    class="w-full max-h-200"
+  >
+</section>
+
+<section class="py-20 bg-gradient-to-tr from-[#3de3a7] via-[#3b82f6] to-[#162a61] text-white overflow-hidden">
+  <div class="container mx-auto px-6">
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-12">
+      
+      <div class="md:w-1/3">
+        <h2 class="text-5xl font-bold leading-tight">¿Qué ofrecemos?</h2>
+      </div>
+
+      <ul class="md:w-2/3 space-y-6">
+        <li class="flex items-start gap-4">
+          <span class="text-[#a7f3d0] font-bold text-3xl">✓</span>
+          <p class="text-3xl font-medium text-white/90">Urgenciólogos 24/7 (no médicos generales)</p>      
+        </li>
+
+        <li class="flex items-start gap-4">
+          <span class="text-[#a7f3d0] font-bold text-3xl">✓</span>
+          <p class="text-3xl font-medium text-white/90">Respuesta inmediata por chat o llamada</p>
+        </li>
+
+        <li class="flex items-start gap-4">
+          <span class="text-[#a7f3d0] font-bold text-3xl">✓</span>
+          <p class="text-3xl font-medium text-white/90">Videollamadas con receta digital</p> 
+        </li>
+
+        <li class="flex items-start gap-4">
+          <span class="text-[#a7f3d0] font-bold text-3xl">✓</span>
+          <p class="text-3xl font-medium text-white/90">Derivación con especialistas y laboratorios aliados</p>   
+        </li>
+
+        <li class="flex items-start gap-4">
+          <span class="text-[#a7f3d0] font-bold text-3xl">✓</span>
+          <p class="text-3xl font-medium text-white/90">Descuentos locales (solo Colima)</p>
+        </li> 
+
+        <li class="flex items-start gap-4">
+          <span class="text-[#a7f3d0] font-bold text-3xl">✓</span>
+          <p class="text-3xl font-medium text-white/90">Cobertura familiar (incluye a 4 personas)</p>
+        </li>
+
+        <li class="flex items-start gap-4">
+          <span class="text-[#a7f3d0] font-bold text-3xl">✓</span>
+          <p class="text-3xl font-medium text-white/90">Atención empática e inmediata</p>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-cover bg-center relative" style="background-image: url('https://urgemy.com/_assets/v11/a213102bc4746e213da20ce36521fe60708f7e9f.png');">
+  <div class="absolute inset-0 bg-white/10 backdrop-blur-sm"></div>
+
+  <div class="container mx-auto px-6 relative z-10 text-center">
+    <h2 class="text-5xl font-bold text-white mb-12">Membresías Destacadas</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      
+      <div class="bg-white/90 backdrop-blur-md rounded-2xl overflow-hidden shadow-2xl flex flex-col">
+        <div class="bg-[#2b59b4] py-4">
+          <h3 class="text-white text-2xl font-bold">Membresía Digital Nacional</h3>
+        </div>
+        <div class="p-10 flex-grow">
+          <p class="text-gray-600 italic mb-4">(para todo México)</p>
+          <div class="mb-6">
+            <span class="text-3xl font-bold text-gray-800">Desde</span>
+            <span class="text-5xl font-extrabold text-[#2b59b4]"> $139</span>
+            <span class="text-2xl font-bold text-gray-800">/mes</span>
+          </div>
+          <ul class="text-left space-y-4">
+            <li class="flex items-center gap-3 text-gray-700">
+              <span class="text-blue-600 font-bold">✓</span>
+              Incluye atención digital 24/7 en todo el país
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-white/90 backdrop-blur-md rounded-2xl overflow-hidden shadow-2xl flex flex-col">
+        <div class="bg-[#2b59b4] py-4">
+          <h3 class="text-white text-2xl font-bold">Membresías Presenciales</h3>
+        </div>
+        <div class="p-10 flex-grow">
+          <p class="text-gray-600 italic mb-4">(solo Colima)</p>
+          <div class="flex justify-center gap-2 mb-6">
+            <span class="bg-[#e67e22] text-white px-4 py-1 rounded-full text-xs font-bold uppercase">Bronce</span>
+            <span class="bg-[#95a5a6] text-white px-4 py-1 rounded-full text-xs font-bold uppercase">Plata</span>
+            <span class="bg-[#f1c40f] text-white px-4 py-1 rounded-full text-xs font-bold uppercase">Oro</span>
+          </div>
+          <ul class="text-left space-y-3">
+            <li class="flex items-center gap-3 text-gray-700">
+              <span class="text-blue-600 font-bold">✓</span> Acceso a urgenciólogos
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <span class="text-blue-600 font-bold">✓</span> Descuentos con especialistas
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <span class="text-blue-600 font-bold">✓</span> Videollamadas
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <span class="text-blue-600 font-bold">✓</span> Consultas presenciales
+            </li>
+            <li class="flex items-center gap-3 text-gray-700">
+              <span class="text-blue-600 font-bold">✓</span> Ambulancia (según nivel)
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="mt-12 bg-[#2b59b4] hover:bg-blue-700 text-white px-10 py-4 rounded-xl font-bold transition-all shadow-xl text-lg">
+      Ver comparativa completa
+    </button>
+  </div>
 </section>
 
   </div>
