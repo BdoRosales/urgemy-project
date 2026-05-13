@@ -2,6 +2,16 @@
   import { ref } from 'vue'
   const isMenuOpen = ref(false)
   const toggleMenu = () => { isMenuOpen.value = !isMenuOpen.value }
+const letrasUrgemy = {
+  u: 'https://urgemy.com/_assets/v11/cab861fd4bb51c9643b87f6ba53ebcf878dac5d0.svg',
+  r: 'https://urgemy.com/_assets/v11/613c7edf76d17f7b66665c0c9be7fee5da7b6ca7.svg',
+  g: 'https://urgemy.com/_assets/v11/7a7479716833c6f1579c91f39b11519ad99434a8.svg',
+  e: 'https://urgemy.com/_assets/v11/6eb9c5307fa0f14aeef79fc4766fde1e899b7193.svg',
+  m: 'https://urgemy.com/_assets/v11/59acf569da6b925e9268c419adec0d9fa2f47f00.svg',
+  y: 'https://urgemy.com/_assets/v11/0af75649b4c76cfec3958c2a550df7200a29f578.svg'
+}
+
+
 </script>
 
 
@@ -51,23 +61,30 @@
       alt="background-hands"
     >
   </div>
-
-  <div class="relative z-10 flex flex-col items-center">
-    <img 
-      src="https://urgemy.com/_assets/v11/f88b8a7ebbce1dd28ec73712242055db7e96a06f.svg" 
-      alt="urgemy-logo-large"
-      style="height: 200px; width: 200px; object-fit: contain;"
-    >
-    <h1 class="text-white text-6xl font-black tracking-tighter mb-2">
-      urgemy
-    </h1>
   
-    <h2 class="text-[#ffffff] text-3xl font-extrabold">
-      Mi salud es <span class="italic">urgente.</span>
-    </h2>
-  </div>
-</section>
+<div class="relative z-10 flex flex-col items-center w-full px-4">
+  <img 
+    src="https://urgemy.com/_assets/v11/f88b8a7ebbce1dd28ec73712242055db7e96a06f.svg" 
+    alt="urgemy-logo-icon"
+    class="mb-6 h-20 w-20 md:h-40 md:w-40 object-contain aspect-square" 
+  >
 
+
+<div class="flex items-baseline justify-center gap-0 md:gap-1 mb-6 w-full max-w-[50px] md:max-w-[100px]">    
+    <img :src="letrasUrgemy.u" alt="u" class="h-10 md:h-16 w-auto object-contain">
+    <img :src="letrasUrgemy.r" alt="r" class="h-10 md:h-16 w-auto object-contain">
+    <img :src="letrasUrgemy.g" alt="g" class="h-10 md:h-16 w-auto object-contain">
+    <img :src="letrasUrgemy.e" alt="e" class="h-10 md:h-16 w-auto object-contain">
+    <img :src="letrasUrgemy.m" alt="m" class="h-10 md:h-16 w-auto object-contain">
+    <img :src="letrasUrgemy.y" alt="y" class="h-10 md:h-16 w-auto object-contain">
+</div>
+
+  <h2 class="text-white text-2xl md:text-4xl tracking-tight">
+    Mi salud es <span class=" font-bold">urgente.</span>
+  </h2>
+</div>
+
+</section>
 <section class="relative bg-white py-20 overflow-hidden">
   
   <div class="absolute inset-0 bg-[#F0F4F8]"></div>
