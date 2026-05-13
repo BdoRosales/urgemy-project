@@ -70,6 +70,34 @@ onMounted(() => {
 onUnmounted(() => {
   if (carruselTimer) clearInterval(carruselTimer)
 })
+
+const testimonioActual = ref(0)
+const testimonios = [
+  {
+    nombre: 'María González',
+    texto: '"El servicio que ofrecen es excepcional. Realmente superó todas mis expectativas y estaré regresando pronto."',
+    estrellas: 5
+  },
+  {
+    nombre: 'Juan Rodríguez',
+    texto: '"Increíble experiencia. El equipo fue profesional y atento a cada detalle durante todo el proceso."',
+    estrellas: 5
+  },
+  {
+    nombre: 'Ana López',
+    texto: '"Una de las mejores decisiones que he tomado. El resultado final fue exactamente lo que estaba buscando."',
+    estrellas: 5
+  }
+  
+]
+
+const siguienteTestimonio = () => {
+  testimonioActual.value = (testimonioActual.value + 1) % testimonios.length
+}
+const testimonioAnterior = () => {
+  testimonioActual.value = (testimonioActual.value - 1 + testimonios.length) % testimonios.length
+}
+
 </script>
 
 
@@ -111,7 +139,6 @@ onUnmounted(() => {
 </nav>
 
 <section class="relative bg-[#A3C5D9] min-h-[700px] flex flex-col items-center justify-center text-center p-10">
-  
   <div class="absolute inset-0 z-0">
     <img 
       src="https://urgemy.com/_assets/v11/75392272d624f38d562aaa4f5cf4a3ef880c4d5b.png?w=2048" 
@@ -119,7 +146,7 @@ onUnmounted(() => {
       alt="background-hands"
     >
   </div>
-  
+  //Urgemy logo
 <div class="relative z-10 flex flex-col items-center w-full px-4">
   <img 
     src="https://urgemy.com/_assets/v11/f88b8a7ebbce1dd28ec73712242055db7e96a06f.svg" 
@@ -143,6 +170,8 @@ onUnmounted(() => {
 </div>
 
 </section>
+
+
 <section class="relative bg-white py-20 overflow-hidden">
   
   <div class="absolute inset-0 bg-[#F0F4F8]"></div>
@@ -350,6 +379,7 @@ onUnmounted(() => {
   </div>
 </section>
 
+
 <section class="relative w-full overflow-hidden">
   <div class="bg-[#335EA9] py-4 text-center">
     <h2 class="text-white text-xl md:text-2xl font-bold">¿Cómo funciona Urgemy?</h2>
@@ -403,6 +433,60 @@ onUnmounted(() => {
         :class="['w-2.5 h-2.5 rounded-full cursor-pointer transition-all duration-300', 
                  pasoActual === index ? 'bg-white w-8 shadow-[0_0_10px_rgba(255,255,255,0.8)]' : 'bg-white/40 hover:bg-white/60']"
       ></div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="py-24 bg-gradient-to-b from-[#335EA9] to-[#58B69B] relative overflow-hidden">
+  <div class="container mx-auto px-6 relative z-10">
+    
+    <h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-16">
+      Testimonios
+    </h2>
+
+    <div class="relative max-w-5xl mx-auto">
+      <div class="flex flex-col md:flex-row gap-6 transition-all duration-500 ease-in-out">
+        
+        <div 
+          v-for="(t, index) in testimonios.slice(testimonioActual, testimonioActual + (isMobile ? 1 : 3)).concat(testimonios.slice(0, Math.max(0, (testimonioActual + (isMobile ? 1 : 3)) - testimonios.length)))" 
+          :key="index"
+          class="bg-white rounded-2xl p-8 shadow-xl flex-1 transform transition-transform hover:-translate-y-2"
+        >
+          <div class="flex gap-1 mb-4">
+            <span v-for="i in t.estrellas" :key="i" class="text-yellow-400 text-xl">★</span>
+          </div>
+          
+          <p class="text-gray-600 italic mb-6 leading-relaxed">
+            {{ t.texto }}
+          </p>
+          
+          <p class="text-[#335EA9] font-bold text-lg">
+            {{ t.nombre }}
+          </p>
+        </div>
+      </div>
+
+      <button @click="testimonioAnterior" 
+              class="absolute -left-4 md:-left-12 top-1/2 -translate-y-1/2 bg-white text-[#335EA9] p-3 rounded-full shadow-lg hover:scale-110 transition-transform">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <button @click="siguienteTestimonio" 
+              class="absolute -right-4 md:-right-12 top-1/2 -translate-y-1/2 bg-white text-[#335EA9] p-3 rounded-full shadow-lg hover:scale-110 transition-transform">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="flex justify-center gap-2 mt-12">
+        <div 
+          v-for="(_, index) in testimonios" 
+          :key="index"
+          @click="testimonioActual = index"
+          :class="['w-2.5 h-2.5 rounded-full cursor-pointer transition-all', 
+                   testimonioActual === index ? 'bg-white w-6' : 'bg-white/40']"
+        ></div>
+      </div>
     </div>
   </div>
 </section>
