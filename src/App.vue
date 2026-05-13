@@ -1,7 +1,9 @@
 <script setup>
-  import { ref } from 'vue'
-  const isMenuOpen = ref(false)
-  const toggleMenu = () => { isMenuOpen.value = !isMenuOpen.value }
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const isMenuOpen = ref(false)
+const toggleMenu = () => { isMenuOpen.value = !isMenuOpen.value }
+
 const letrasUrgemy = {
   u: 'https://urgemy.com/_assets/v11/cab861fd4bb51c9643b87f6ba53ebcf878dac5d0.svg',
   r: 'https://urgemy.com/_assets/v11/613c7edf76d17f7b66665c0c9be7fee5da7b6ca7.svg',
@@ -11,7 +13,63 @@ const letrasUrgemy = {
   y: 'https://urgemy.com/_assets/v11/0af75649b4c76cfec3958c2a550df7200a29f578.svg'
 }
 
+const pasoActual = ref(0)
+let carruselTimer = null
 
+const pasos = [
+  { 
+    titulo: 'Contáctanos por WhatsApp o desde la app', 
+    descripcion: 'Disponible 24/7 con tiempos de respuesta inmediatos.', 
+    imagen: 'https://bestlifeonline.com/wp-content/uploads/sites/3/2022/04/young-woman-text-confused-concerned-smishing-fedex-warning.jpg?quality=82&strip=all' 
+  },
+  { 
+    titulo: 'Evaluación por urgenciólogo', 
+    descripcion: 'Clasificación de nivel de urgencia. No es un bot. No es un médico general. Es un urgenciólogo certificado', 
+    imagen: 'https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' 
+  },
+  { 
+    titulo: 'Recibe orientación o receta', 
+    descripcion: 'Recomendación médica + nota digital.', 
+    imagen: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' 
+  },
+  { 
+    titulo: 'Canalización si es necesario', 
+    descripcion: 'Con especialistas, laboratorios, ambulancia, psicólogo o nutriólogo.', 
+    imagen: 'https://images.unsplash.com/photo-1504439468489-c8920d796a29?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80' 
+  },
+  { 
+    titulo: 'Seguimiento', 
+    descripcion: 'El mismo médico da el seguimiento hasta resolver el caso por completo.', 
+    imagen: 'https://www.tatvacare.in/wp-content/uploads/2025/03/Untitled-design-2025-03-21T150159.433.png' 
+  }
+]
+
+const siguientePaso = () => {
+  pasoActual.value = (pasoActual.value + 1) % pasos.length
+}
+
+const pasoAnterior = () => {
+  pasoActual.value = (pasoActual.value - 1 + pasos.length) % pasos.length
+  resetTimer()
+}
+
+const seleccionarPasoManual = (index) => {
+  pasoActual.value = index
+  resetTimer()
+}
+
+const resetTimer = () => {
+  if (carruselTimer) clearInterval(carruselTimer)
+  carruselTimer = setInterval(siguientePaso, 5000)
+}
+
+onMounted(() => {
+  resetTimer()
+})
+
+onUnmounted(() => {
+  if (carruselTimer) clearInterval(carruselTimer)
+})
 </script>
 
 
@@ -70,13 +128,13 @@ const letrasUrgemy = {
   >
 
 
-<div class="flex items-baseline justify-center gap-0 md:gap-1 mb-6 w-full max-w-[50px] md:max-w-[100px]">    
-    <img :src="letrasUrgemy.u" alt="u" class="h-10 md:h-16 w-auto object-contain">
-    <img :src="letrasUrgemy.r" alt="r" class="h-10 md:h-16 w-auto object-contain">
-    <img :src="letrasUrgemy.g" alt="g" class="h-10 md:h-16 w-auto object-contain">
-    <img :src="letrasUrgemy.e" alt="e" class="h-10 md:h-16 w-auto object-contain">
-    <img :src="letrasUrgemy.m" alt="m" class="h-10 md:h-16 w-auto object-contain">
-    <img :src="letrasUrgemy.y" alt="y" class="h-10 md:h-16 w-auto object-contain">
+<div class="flex items-baseline justify-center gap-0 md:gap-1 mb-6 w-full max-w-[50px] md:max-w-[80px]">    
+    <img :src="letrasUrgemy.u" alt="u" class="h-10 md:h-20 w-auto object-contain">
+    <img :src="letrasUrgemy.r" alt="r" class="h-10 md:h-20 w-auto object-contain">
+    <img :src="letrasUrgemy.g" alt="g" class="h-10 md:h-20 w-auto object-contain">
+    <img :src="letrasUrgemy.e" alt="e" class="h-10 md:h-20 w-auto object-contain">
+    <img :src="letrasUrgemy.m" alt="m" class="h-10 md:h-20 w-auto object-contain">
+    <img :src="letrasUrgemy.y" alt="y" class="h-10 md:h-20 w-auto object-contain">
 </div>
 
   <h2 class="text-white text-2xl md:text-4xl tracking-tight">
@@ -292,12 +350,62 @@ const letrasUrgemy = {
   </div>
 </section>
 
-<section>
+<section class="relative w-full overflow-hidden">
+  <div class="bg-[#335EA9] py-4 text-center">
+    <h2 class="text-white text-xl md:text-2xl font-bold">¿Cómo funciona Urgemy?</h2>
+  </div>
 
+  <div class="relative h-[500px] md:h-[600px] w-full">
+    <img 
+      :src="pasos[pasoActual].imagen" 
+      class="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-in-out"
+      alt="Fondo paso"
+    >
 
+    <div class="absolute inset-0 bg-black/30"></div>
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 w-[90%] max-w-md 
+            bg-white/20 backdrop-blur-xl border border-white/30 
+            p-8 rounded-3xl shadow-2xl flex items-start gap-5 
+            transition-all duration-500 transform hover:scale-[1.02]">
+      
+  <div class="bg-blue-600 backdrop-blur-md text-[#ffffff] w-10 h-10 rounded-full 
+              flex items-center justify-center flex-shrink-0 font-black border border-white/40 shadow-md">
+    {{ pasoActual + 1 }}
+  </div>
+  
+  <div>
+    <h3 class="text-white font-black text-xl leading-tight mb-2 drop-shadow-md">
+      {{ pasos[pasoActual].titulo }}
+    </h3>
+    <p class="text-white/90 text-sm leading-relaxed font-medium">
+      {{ pasos[pasoActual].descripcion }}
+    </p>
+      </div>
+    </div>
 
+    <button @click="pasoAnterior" 
+            class="absolute left-6 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-md p-3 rounded-full 
+                   text-white border border-white/30 hover:bg-white/40 transition-all active:scale-95 shadow-lg">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <button @click="siguientePaso" 
+            class="absolute right-6 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-md p-3 rounded-full 
+                   text-white border border-white/30 hover:bg-white/40 transition-all active:scale-95 shadow-lg">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3">
+      <div 
+        v-for="(paso, index) in pasos" 
+        :key="index"
+        @click="seleccionarPasoManual(index)"
+        :class="['w-2.5 h-2.5 rounded-full cursor-pointer transition-all duration-300', 
+                 pasoActual === index ? 'bg-white w-8 shadow-[0_0_10px_rgba(255,255,255,0.8)]' : 'bg-white/40 hover:bg-white/60']"
+      ></div>
+    </div>
+  </div>
 </section>
-
 
   </div>
 </template>
