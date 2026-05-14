@@ -108,35 +108,37 @@ const testimonioAnterior = () => {
 <template>
   <div>
     <nav class="fixed top-0 left-0 w-full bg-[#335EA9] px-6 py-4 text-white z-50 shadow-md">
-      <div class="container mx-auto flex justify-between items-center">
-        <div class="flex-none">
-          <img 
-            src="https://urgemy.com/_assets/v11/f88b8a7ebbce1dd28ec73712242055db7e96a06f.svg" 
-            alt="logo"
-            class="object-contain"
-            style="height: 25px; width: 25px;" 
-          >
-        </div>
+  <div class="container mx-auto flex justify-between items-center">
+    <div class="flex-none">
+      <a href="/" class="block hover:opacity-80 transition-opacity">
+        <img 
+          src="https://urgemy.com/_assets/v11/f88b8a7ebbce1dd28ec73712242055db7e96a06f.svg" 
+          alt="logo"
+          class="object-contain"
+          style="height: 25px; width: 25px;" 
+        >
+      </a>
+    </div>
 
-        <button @click="toggleMenu" class="block md:hidden focus:outline-none">
-          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path v-if="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        </button>
+    <button @click="toggleMenu" class="block md:hidden focus:outline-none">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path v-if="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
 
-        <div :class="{ 'hidden': !isMenuOpen, 'flex': isMenuOpen }" 
-             class="absolute top-full left-0 w-full bg-[#335EA9] flex-col items-center gap-6 py-6 md:static md:w-auto md:bg-transparent md:flex md:flex-row md:py-0 md:gap-8">
-          <button class="bg-[#58B69B] px-4 py-2 rounded-lg font-bold text-sm mb-4 md:mb-0">Descarga la app</button> 
-          <ul class="flex flex-col md:flex-row items-center gap-5 list-none m-0 p-0 text-center">
-            <li><a href="#" class="text-[14px] hover:text-gray-300">Inicio</a></li>
-            <li><a href="#" class="text-[14px] hover:text-gray-300">Membresias</a></li>
-            <li><a href="#" class="text-[14px] font-bold hover:text-gray-300">¿Por qué un urgenciólogo?</a></li>
-            <li><a href="#" class="text-[14px] font-bold hover:text-gray-300">Empresas</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <div :class="{ 'hidden': !isMenuOpen, 'flex': isMenuOpen }" 
+         class="absolute top-full left-0 w-full bg-[#335EA9] flex-col items-center gap-6 py-6 md:static md:w-auto md:bg-transparent md:flex md:flex-row md:py-0 md:gap-8">
+      <button class="bg-[#58B69B] px-4 py-2 rounded-lg font-bold text-sm mb-4 md:mb-0">Descarga la app</button> 
+      <ul class="flex flex-col md:flex-row items-center gap-5 list-none m-0 p-0 text-center">
+        <li><a href="/" class="text-[14px] hover:text-gray-300">Inicio</a></li>
+        <li><a href="#" class="text-[14px] hover:text-gray-300">Membresias</a></li>
+        <li><a href="#" class="text-[14px] font-bold hover:text-gray-300">¿Por qué un urgenciólogo?</a></li>
+        <li><a href="#" class="text-[14px] font-bold hover:text-gray-300">Empresas</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
     <section class="relative bg-[#A3C5D9] min-h-[700px] flex flex-col items-center justify-center text-center p-10 mt-[65px]">
       <div class="absolute inset-0 z-0">
@@ -430,7 +432,44 @@ const testimonioAnterior = () => {
   </div>
 </section>
 
+<footer class="w-full bg-[#F9F7F1] pt-16 pb-8 px-6 md:px-20 text-[#000000]">
+  <div class="max-w-[1200px] mx-auto">
+    
+    <div class="mb-12">
+      <div class="flex items-center gap-2">
+        <img src="https://urgemy.com/_assets/v11/eeae47e67d19e825265a2db3a57f6384aad22b7c.png" alt="Urgemy" class="h-10">
+      </div>
+    </div>
 
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-4 mb-20">
+      
+      <div class="flex flex-col gap-1 text-sm md:text-base">
+        <a href="mailto:ventas@urgemy.com" class="hover:underline">ventas@urgemy.com</a>
+        <span>(312) 330 4004</span>
+      </div>
+
+      <div class="flex flex-col gap-1 text-sm md:text-base">
+        <p>Avenida 20 de Noviembre #480</p>
+        <p>Los Viveros</p>
+        <p>Colima, Colima</p>
+      </div>
+
+      <div class="flex flex-col gap-1 text-sm md:text-base">
+        <a href="#" class="hover:underline">Instagram</a>
+        <a href="#" class="hover:underline">Facebook</a>
+        <a href="#" class="hover:underline">LinkedIn</a>
+        <a href="#" class="hover:underline">Bluesky</a>
+        <a href="#" class="hover:underline mt-2">Aviso de privacidad</a>
+      </div>
+    </div>
+
+    <div class="text-xs md:text-sm text-black">
+      <p class="font-semibold">Urgemy</p>
+      <p class="font-semibold">© 2026 Todos los derechos reservados</p>
+    </div>
+    
+  </div>
+</footer>
 
   </div>
 </template>
