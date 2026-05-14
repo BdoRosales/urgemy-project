@@ -396,9 +396,41 @@ const testimonioAnterior = () => {
       </div>
     </section>
 
-    <section>
-      
 
-    </section>
+
+    <section class="relative w-full bg-white overflow-hidden">
+  <div class="w-full flex flex-col md:flex-row items-center justify-between">
+    
+    <div class="w-full md:w-[45%] flex justify-start">
+      <img 
+        src="https://urgemy.com/_assets/v11/16531b35a495d46a30f3a22c0663f085e5ddb427.png" 
+        alt="Familia Urgemy" 
+        class="w-full h-auto max-h-[450px] md:max-h-[550px] object-contain object-left"
+      >
+    </div>
+
+    <div class="w-full md:w-[45%] flex flex-col items-center justify-center text-center p-8 md:pr-20 mt-10 md:mt-0">
+      <h2 class="text-3xl md:text-[38px] text-[#2D5699] mb-8 leading-tight">
+        Tu tranquilidad comienza <span class="font-bold">aquí</span>
+      </h2>
+
+      <div class="flex flex-col items-center gap-4 w-full max-w-[280px]">
+        <button class="w-full py-3.5 px-6 rounded-lg bg-gradient-to-r from-[#4471B1] to-[#63B9A8] text-white font-medium shadow-md hover:opacity-90 transition-all">
+          Contrata una membresía
+        </button>
+
+        <span class="text-gray-400 font-light text-sm italic">o</span>
+
+        <button class="w-full py-3.5 px-6 rounded-lg bg-black text-white font-medium shadow-md hover:bg-gray-800 transition-all">
+          Descarga la aplicación
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
   </div>
 </template>
