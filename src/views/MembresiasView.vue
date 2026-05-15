@@ -10,12 +10,24 @@
           Elige el plan ideal para tu familia o empresa
         </h1>
         <div class="inline-flex bg-white/90 backdrop-blur-sm rounded-full p-1 shadow-md border border-blue-100">
-          <button class="px-6 py-2 rounded-full bg-[#335EA9] text-white font-bold text-sm">Planes familiares</button>
-          <button class="px-6 py-2 rounded-full text-[#335EA9] font-bold text-sm hover:bg-gray-50 transition-all">Planes empresariales</button>
+          <button 
+            @click="isEmpresarial = false"
+            :class="!isEmpresarial ? 'bg-[#335EA9] text-white' : 'text-[#335EA9] hover:bg-gray-50'"
+            class="px-6 py-2 rounded-full font-bold text-sm transition-all cursor-pointer"
+          >
+            Planes familiares
+          </button>
+          <button 
+            @click="isEmpresarial = true"
+            :class="isEmpresarial ? 'bg-[#335EA9] text-white' : 'text-[#335EA9] hover:bg-gray-50'"
+            class="px-6 py-2 rounded-full font-bold text-sm transition-all cursor-pointer"
+          >
+            Planes empresariales
+          </button>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div v-if="!isEmpresarial" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         
         <div class="bg-white/95 backdrop-blur-md rounded-[32px] shadow-2xl border border-white/20 p-8 flex flex-col h-fit">
           <h3 class="text-2xl font-bold text-center text-[#335EA9] mb-2">Membresía Digital Nacional</h3>
@@ -86,17 +98,46 @@
                   <span class="text-2xl font-black text-[#335EA9]">$499</span>
                </div>
                <p class="text-[11px] text-gray-500 leading-tight mb-5 italic">
-                 Atención ilimitada durante 24 horas para el titular. El monto pagado se toma en cuenta si contrata membresía mensual o anual en las 48h posteriores.
+                  Atención ilimitada durante 24 horas para el titular. El monto pagado se toma en cuenta si contrata membresía mensual o anual en las 48h posteriores.
                </p>
                
                <button class="w-full py-4 rounded-xl bg-gradient-to-r from-[#335EA9] to-[#51C0A4] text-white font-bold shadow-lg hover:brightness-110 transition-all">
-                 Adquirir Pase 24h
+                  Adquirir Pase 24h
                </button>
             </div>
           </div>
         </div>
-
       </div>
+
+      <div v-else class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        <div 
+          v-for="(card, index) in empresarialCards" 
+          :key="index" 
+          class="bg-white rounded-[24px] shadow-2xl border border-white/20 p-8 flex flex-col justify-between transition-all duration-300 hover:scale-[1.02]"
+        >
+          <div>
+            <h3 class="text-xl md:text-2xl font-bold text-center text-gray-900 mb-1">{{ card.title }}</h3>
+            <p class="text-center text-gray-400 text-xs font-semibold mb-4 tracking-wide uppercase">{{ card.scope }}</p>
+            
+            <div class="text-center mb-2">
+              <span class="text-2xl md:text-3xl font-black text-gray-900">{{ card.price }}</span>
+            </div>
+            <p class="text-center text-gray-500 text-xs italic mb-6">depende del número de empleados</p>
+            
+            <ul class="space-y-3.5 mb-8">
+              <li v-for="(benefit, bIndex) in card.benefits" :key="bIndex" class="flex items-start gap-3 text-[13px] text-gray-700 leading-tight">
+                <span class="text-[#58B69B] font-bold text-sm">✓</span>
+                <span>{{ benefit }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <button class="w-full py-3.5 rounded-xl bg-[#335EA9] text-white font-bold text-sm shadow-md hover:bg-[#284c8a] transition-all mt-auto">
+            Contratar ahora
+          </button>
+        </div>
+      </div>
+
     </div>
   </section>
 </template>
@@ -104,8 +145,11 @@
 <script setup>
 import { ref } from 'vue';
 
+// Estado para controlar qué sección ver en la misma ruta
+const isEmpresarial = ref(false);
 const activePlan = ref('plata');
 
+// Datos de Planes Familiares
 const benefitsDigital = [
   "Orientación médica inmediata vía chat 24/7 con urgenciólogos (Ilimitado).",
   "Evaluación médica ágil para priorizar las necesidades de cada caso.",
@@ -146,6 +190,67 @@ const plans = {
     ]
   }
 };
+
+// Datos Nuevos para las Tarjetas Empresariales (Copiados del mockup)
+const empresarialCards = [
+  {
+    title: "Urgeny Digital Empresarial",
+    scope: "Nacional",
+    price: "Desde $59 a $99",
+    benefits: [
+      "Orientación médica inmediata vía chat 24/7 con urgenciólogos (Ilimitado).",
+      "Evaluación médica ágil para priorizar las necesidades de cada caso.",
+      "Recomendaciones y seguimiento vía digital para revaloración.",
+      "Expediente digital.",
+      "Reporte mensual consolidado por empresa.",
+      "2 Consultas médicas por Telemedicina con receta digital, vía videollamada al año."
+    ]
+  },
+  {
+    title: "Urgeny TeleCare Empresarial",
+    scope: "Nacional Avanzado",
+    price: "$99 a $139",
+    benefits: [
+      "Orientación médica inmediata vía chat 24/7 con urgenciólogos (Ilimitado).",
+      "Evaluación médica ágil para priorizar las necesidades de cada caso.",
+      "Recomendaciones y seguimiento vía digital para revaloración.",
+      "Expediente digital.",
+      "Reporte mensual consolidado por empresa.",
+      "4 Consultas médicas por Telemedicina con receta digital, vía videollamada al año."
+    ]
+  },
+  {
+    title: "Urgeny Plus Regional",
+    scope: "Colima",
+    price: "$139 a $179",
+    benefits: [
+      "Orientación médica inmediata vía chat 24/7 con urgenciólogos (Ilimitado).",
+      "Evaluación médica ágil para priorizar las necesidades de cada caso.",
+      "Recomendaciones y seguimiento vía digital para revaloración.",
+      "Expediente digital.",
+      "Reporte mensual consolidado por empresa.",
+      "2 Consultas médicas por Telemedicina con receta digital, vía videollamada al año.",
+      "2 Consultas por médico general presenciales al año.",
+      "Derivación con Especialistas, Laboratorios y Unidades de Imagen con el 10% de descuento."
+    ]
+  },
+  {
+    title: "Urgeny Total Care Regional",
+    scope: "Sólo Colima, Premium",
+    price: "$179 a $219",
+    benefits: [
+      "Orientación médica inmediata vía chat 24/7 con urgenciólogos (Ilimitado).",
+      "Evaluación médica ágil para priorizar las necesidades de cada caso.",
+      "Recomendaciones y seguimiento vía digital para revaloración.",
+      "Expediente digital.",
+      "Reporte mensual consolidado por empresa.",
+      "2 Consultas médicas por Telemedicina con receta digital, vía videollamada al año.",
+      "2 Consultas por médico general presenciales al año.",
+      "Derivación con Especialistas, Laboratorios y Unidades de Imagen con el 15% de descuento.",
+      "1 Consulta presencial con Pediatra al año."
+    ]
+  }
+];
 </script>
 
 <style scoped>
