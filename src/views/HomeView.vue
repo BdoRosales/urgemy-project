@@ -5,12 +5,6 @@ import urgemyletras from '../assets/urgemyletras.png'
 
 const router = useRouter()
 
-const irAMembresias = () => {
-  if (router) {
-    router.push('/membresias') 
-  }
-}
-
 const isMenuOpen = ref(false)
 const toggleMenu = () => { isMenuOpen.value = !isMenuOpen.value }
 
@@ -142,9 +136,9 @@ const testimonioAnterior = () => {
               </router-link>
             </li>
             <li>
-              <a href="#" @click.prevent="irAMembresias(); isMenuOpen = false" class="text-[14px] hover:text-gray-300">
+              <router-link to="/membresias" class="text-[14px] hover:text-gray-300" @click="isMenuOpen = false">
                 Membresias
-              </a>
+              </router-link>
             </li>
             <li>
               <router-link to="/urgenciologo" class="text-[14px] font-bold hover:text-gray-300" @click="isMenuOpen = false">
