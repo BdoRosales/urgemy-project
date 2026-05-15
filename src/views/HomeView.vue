@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useRouter } from 'vue-router' 
+import urgemyletras from '../assets/urgemyletras.png'
 
 const router = useRouter()
 
@@ -12,15 +13,6 @@ const irAMembresias = () => {
 
 const isMenuOpen = ref(false)
 const toggleMenu = () => { isMenuOpen.value = !isMenuOpen.value }
-
-const letrasUrgemy = {
-  u: 'https://urgemy.com/_assets/v11/2f5efaf1f19d6798217ff55af31d05be4f104cca.svg',
-  r: 'https://urgemy.com/_assets/v11/b175daa701af2224dc1257ed76374c2f20ecb80c.svg',
-  g: 'https://urgemy.com/_assets/v11/61ec26193502aeee3d703b506a66910cd28efb41.svg',
-  e: 'https://urgemy.com/_assets/v11/0f0670cb3693c29ce2e49f94f48ca3c121400663.svg',
-  m: 'https://urgemy.com/_assets/v11/0ac64389b2d2530564f0e32efa8e803ad4e2f926.svg',
-  y: 'https://urgemy.com/_assets/v11/c4a54584d7f46131f9a043b2f920994aaac473b1.svg',
-}
 
 const pasoActual = ref(0)
 let carruselTimer = null
@@ -91,7 +83,7 @@ const testimonioActual = ref(0)
 const testimonios = [
   {
     nombre: 'María González',
-    texto: '"El servicio que ofrecen es excepcional. Realmente superó todas mis expectativas y estaré regresando pronto."',
+    texto: '"El servicio que ofrecen es exceptional. Realmente superó todas mis expectativas y estaré regresando pronto."',
     estrellas: 5
   },
   {
@@ -116,60 +108,60 @@ const testimonioAnterior = () => {
 <template>
   <div>
     <nav class="fixed top-0 left-0 w-full bg-[#335EA9] px-6 py-4 text-white z-50 shadow-md">
-  <div class="container mx-auto flex justify-between items-center">
-    
-    <div class="flex-none">
-      <router-link to="/" class="block hover:opacity-80 transition-opacity" @click="isMenuOpen = false">
-        <img 
-          src="https://urgemy.com/_assets/v11/f88b8a7ebbce1dd28ec73712242055db7e96a06f.svg" 
-          alt="logo"
-          class="object-contain"
-          style="height: 25px; width: 25px;" 
-        >
-      </router-link>
-    </div>
-
-    <button @click="toggleMenu" class="block md:hidden focus:outline-none" aria-label="Menu">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path v-if="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
-    </button>
-
-    <div :class="{ 'hidden': !isMenuOpen, 'flex': isMenuOpen }" 
-         class="absolute top-full left-0 w-full bg-[#335EA9] flex-col items-center gap-6 py-6 md:static md:w-auto md:bg-transparent md:flex md:flex-row md:py-0 md:gap-8 transition-all duration-300">
-      
-      <button class="bg-[#58B69B] px-4 py-2 rounded-lg font-bold text-sm mb-4 md:mb-0 hover:bg-[#4a9a83] transition-colors">
-        Descarga la app
-      </button> 
-
-      <ul class="flex flex-col md:flex-row items-center gap-5 list-none m-0 p-0 text-center">
-        <li>
-          <router-link to="/" class="text-[14px] hover:text-gray-300" @click="isMenuOpen = false">
-            Inicio
+      <div class="container mx-auto flex justify-between items-center">
+        
+        <div class="flex-none">
+          <router-link to="/" class="block hover:opacity-80 transition-opacity" @click="isMenuOpen = false">
+            <img 
+              src="https://urgemy.com/_assets/v11/f88b8a7ebbce1dd28ec73712242055db7e96a06f.svg" 
+              alt="logo"
+              class="object-contain"
+              style="height: 25px; width: 25px;" 
+            >
           </router-link>
-        </li>
-        <li>
-          <a href="#" @click.prevent="irAMembresias(); isMenuOpen = false" class="text-[14px] hover:text-gray-300">
-            Membresias
-          </a>
-        </li>
-        <li>
-          <router-link to="/urgenciologo" class="text-[14px] font-bold hover:text-gray-300" @click="isMenuOpen = false">
-            ¿Por qué un urgenciólogo?
-          </router-link>
-        </li>
-        <li>
-          <router-link to="/empresas" class="text-[14px] font-bold hover:text-gray-300" @click="isMenuOpen = false">
-            Empresas
-          </router-link>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+        </div>
 
-    <section class="relative bg-[#A3C5D9] min-h-[700px] flex flex-col items-center justify-center text-center p-10 mt-[65px]">
+        <button @click="toggleMenu" class="block md:hidden focus:outline-none" aria-label="Menu">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path v-if="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+
+        <div :class="{ 'hidden': !isMenuOpen, 'flex': isMenuOpen }" 
+             class="absolute top-full left-0 w-full bg-[#335EA9] flex-col items-center gap-6 py-6 md:static md:w-auto md:bg-transparent md:flex md:flex-row md:py-0 md:gap-8 transition-all duration-300">
+          
+          <button class="bg-[#58B69B] px-4 py-2 rounded-lg font-bold text-sm mb-4 md:mb-0 hover:bg-[#4a9a83] transition-colors">
+            Descarga la app
+          </button> 
+
+          <ul class="flex flex-col md:flex-row items-center gap-5 list-none m-0 p-0 text-center">
+            <li>
+              <router-link to="/" class="text-[14px] hover:text-gray-300" @click="isMenuOpen = false">
+                Inicio
+              </router-link>
+            </li>
+            <li>
+              <a href="#" @click.prevent="irAMembresias(); isMenuOpen = false" class="text-[14px] hover:text-gray-300">
+                Membresias
+              </a>
+            </li>
+            <li>
+              <router-link to="/urgenciologo" class="text-[14px] font-bold hover:text-gray-300" @click="isMenuOpen = false">
+                ¿Por qué un urgenciólogo?
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/empresas" class="text-[14px] font-bold hover:text-gray-300" @click="isMenuOpen = false">
+                Empresas
+              </router-link>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section class="relative bg-[#A3C5D9] min-h-[800px] flex flex-col items-center justify-center text-center p-10 mt-[65px]">
       <div class="absolute inset-0 z-0">
         <img 
           src="https://urgemy.com/_assets/v11/75392272d624f38d562aaa4f5cf4a3ef880c4d5b.png?w=2048" 
@@ -178,24 +170,23 @@ const testimonioAnterior = () => {
         >
       </div>
 
-      <div class="relative z-10 flex flex-col items-center w-full max-w-6xl mx-auto px-4">
+     <div class="relative z-10 flex flex-col items-center gap-1 w-full max-w-6xl mx-auto px-4">
 
         <img 
           src="https://urgemy.com/_assets/v11/f88b8a7ebbce1dd28ec73712242055db7e96a06f.svg" 
           alt="urgemy-logo-icon"
-          class="mb-6 h-24 w-24 md:h-40 md:w-40 object-contain" 
+          class="mb-2 h-24 w-24 md:h-40 md:w-40 object-contain" 
         >
 
-        <div class="flex items-end justify-center gap-[1%] md:gap-3 mb-4 w-full max-w-[95%] mx-auto">
-  <img :src="letrasUrgemy.u" alt="u" class="h-10 md:h-20 w-[12%] max-w-[50px] md:max-w-[70px] object-contain">
-  <img :src="letrasUrgemy.r" alt="r" class="h-10 md:h-20 w-[10%] max-w-[40px] md:max-w-[55px] object-contain">
-  <img :src="letrasUrgemy.g" alt="g" class="h-10 md:h-20 w-[12%] max-w-[50px] md:max-w-[75px] object-contain">
-  <img :src="letrasUrgemy.e" alt="e" class="h-10 md:h-20 w-[12%] max-w-[50px] md:max-w-[70px] object-contain">
-  <img :src="letrasUrgemy.m" alt="m" class="h-10 md:h-20 w-[18%] max-w-[75px] md:max-w-[100px] object-contain">
-  <img :src="letrasUrgemy.y" alt="y" class="h-10 md:h-20 w-[11%] max-w-[45px] md:max-w-[65px] object-contain">
-</div>
+        <div class="flex justify-center w-full max-w-[95%] mx-auto">
+          <img 
+            :src="urgemyletras" 
+            alt="urgemy-letras" 
+            class="h-12 md:h-36 w-auto object-contain"
+          >
+        </div>
 
-        <div class="flex flex-col items-center gap-2">
+        <div class="flex flex-col items-center mt-2">
           <h2 class="text-white text-2xl md:text-4xl tracking-tight">
             Mi salud es <span class="font-bold">urgente.</span>
           </h2>
