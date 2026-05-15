@@ -1,10 +1,10 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import MembresiasView from '../views/MembresiasView.vue' 
 import PrivacidadView from '../views/PrivacidadView.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -15,13 +15,13 @@ const router = createRouter({
       path: '/membresias',
       name: 'membresias',
       component: MembresiasView,
-      meta:{hideFooter:true}
+      meta: { hideFooter: true }
     },
     {
-    path: '/aviso-de-privacidad',
-    name: 'privacidad',
-    component: PrivacidadView
-  }
+      path: '/aviso-de-privacidad',
+      name: 'privacidad',
+      component: PrivacidadView
+    }
   ],
   scrollBehavior() {
     return { top: 0 }
