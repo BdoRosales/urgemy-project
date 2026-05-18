@@ -1,6 +1,6 @@
 <template>
   <section class="relative min-h-screen pt-28 pb-20 px-4 md:px-10 overflow-hidden">
-    <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat bg-fixed blur-background scale-105"
+    <div class="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat blur-background scale-105"
          style="background-image: url('https://urgemy.com/_assets/v11/9262fef36fc968855e77ab8b3a520cad97783159.png')">
     </div>
 
@@ -28,7 +28,6 @@
       </div>
 
       <div v-if="!isEmpresarial" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        
         <div class="bg-white/95 backdrop-blur-md rounded-[32px] shadow-2xl border border-white/20 p-8 flex flex-col h-fit">
           <h3 class="text-2xl font-bold text-center text-[#335EA9] mb-2">Membresía Digital Nacional</h3>
           <p class="text-center text-gray-500 text-sm mb-6">Un plan básico, válido en todo México</p>
@@ -145,11 +144,9 @@
 <script setup>
 import { ref } from 'vue';
 
-// Estado para controlar qué sección ver en la misma ruta
 const isEmpresarial = ref(false);
 const activePlan = ref('plata');
 
-// Datos de Planes Familiares
 const benefitsDigital = [
   "Orientación médica inmediata vía chat 24/7 con urgenciólogos (Ilimitado).",
   "Evaluación médica ágil para priorizar las necesidades de cada caso.",
@@ -191,7 +188,6 @@ const plans = {
   }
 };
 
-// Datos Nuevos para las Tarjetas Empresariales (Copiados del mockup)
 const empresarialCards = [
   {
     title: "Urgeny Digital Empresarial",
