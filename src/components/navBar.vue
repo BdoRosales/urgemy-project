@@ -30,7 +30,12 @@
           <router-link to="/membresias" class="text-[14px] hover:text-gray-300" @click="isMenuOpen = false">Membresias</router-link>
         </li>
         <li>
-          <router-link to="/urgenciologo" class="text-[14px] font-bold hover:text-gray-300" @click="isMenuOpen = false">¿Por qué un urgenciólogo?</router-link>
+          <button 
+            @click="emitirAbrirModal" 
+            class="text-[14px] font-bold hover:text-gray-300 cursor-pointer focus:outline-none"
+          >
+            ¿Por qué un urgenciólogo?
+          </button>
         </li>
         <li>
           <router-link to="/empresas" class="text-[14px] font-bold hover:text-gray-300" @click="isMenuOpen = false">Empresas</router-link>
@@ -44,9 +49,16 @@
 <script setup>
 import { ref } from 'vue';
 
+const emit = defineEmits(['open-urgenciologo']);
+
 const isMenuOpen = ref(false);
 
- const toggleMenu = () => {
+const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
+};
+
+const emitirAbrirModal = () => {
+  emit('open-urgenciologo');
+  isMenuOpen.value = false;
 };
 </script>

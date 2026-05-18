@@ -3,13 +3,14 @@ import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useRouter } from 'vue-router' 
 import urgemyletras from '../assets/urgemyletras.png'
 import navBar from '../components/navBar.vue'
-
+import ModalUrgenciologo from '../components/ModalUrgenciologo.vue'
 
 const router = useRouter()
 
 const isMenuOpen = ref(false)
 const toggleMenu = () => { isMenuOpen.value = !isMenuOpen.value }
 
+const isUrgenciologoModalOpen = ref(false)
 const pasoActual = ref(0)
 let carruselTimer = null
 
