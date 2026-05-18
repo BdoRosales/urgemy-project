@@ -1,10 +1,10 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router' // 1. Cambiar aquí
 import HomeView from '../views/HomeView.vue'
 import MembresiasView from '../views/MembresiasView.vue' 
 import PrivacidadView from '../views/PrivacidadView.vue'
 
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL), 
   routes: [
     {
       path: '/',
