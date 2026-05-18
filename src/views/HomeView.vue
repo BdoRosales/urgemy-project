@@ -105,38 +105,38 @@ const testimonioAnterior = () => {
   <div>
    
 
-    <section class="relative bg-[#A3C5D9] min-h-[800px] flex flex-col items-center justify-center text-center p-10 mt-[65px]">
-      <div class="absolute inset-0 z-0">
-        <img 
-          src="https://urgemy.com/_assets/v11/75392272d624f38d562aaa4f5cf4a3ef880c4d5b.png?w=2048" 
-          class="w-full h-full object-cover brightness-[0.6]"
-          alt="background-hands"
-        >
-      </div>
+   <section class="relative bg-[#A3C5D9] min-h-[800px] flex flex-col items-center justify-center text-center p-10 mt-[65px]">
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="https://urgemy.com/_assets/v11/75392272d624f38d562aaa4f5cf4a3ef880c4d5b.png?w=2048" 
+      class="w-full h-full object-cover brightness-[0.6]"
+      alt="background-hands"
+    >
+  </div>
 
-     <div class="relative z-10 flex flex-col items-center gap-1 w-full max-w-6xl mx-auto px-4">
+  <div class="relative z-10 flex flex-col items-center gap-1 w-full max-w-6xl mx-auto px-4">
 
-        <img 
-          src="https://urgemy.com/_assets/v11/f88b8a7ebbce1dd28ec73712242055db7e96a06f.svg" 
-          alt="urgemy-logo-icon"
-          class="mb-2 h-24 w-24 md:h-40 md:w-40 object-contain" 
-        >
+    <img 
+      src="https://urgemy.com/_assets/v11/f88b8a7ebbce1dd28ec73712242055db7e96a06f.svg" 
+      alt="urgemy-logo-icon"
+      class="mb-2 h-24 w-24 md:h-40 md:w-40 object-contain mx-auto" 
+    >
 
-        <div class="flex justify-center w-full max-w-[95%] mx-auto">
-          <img 
-            :src="urgemyletras" 
-            alt="urgemy-letras" 
-            class="h-12 md:h-36 w-auto object-contain"
-          >
-        </div>
+    <div class="flex justify-center items-center w-full max-w-[95%] mx-auto">
+      <img 
+        :src="urgemyletras" 
+        alt="urgemy-letras" 
+        class="h-12 md:h-36 w-auto object-contain -ml-5 md:-ml-8"
+      >
+    </div>
 
-        <div class="flex flex-col items-center mt-2">
-          <h2 class="text-white text-2xl md:text-4xl tracking-tight">
-            Mi salud es <span class="font-bold">urgente.</span>
-          </h2>
-        </div>
-      </div>
-    </section>
+    <div class="flex flex-col items-center mt-2 w-full">
+      <h2 class="text-white text-2xl md:text-4xl tracking-tight text-center">
+        Mi salud es <span class="font-bold">urgente.</span>
+      </h2>
+    </div>
+  </div>
+</section>
 
     <section class="relative bg-white py-20 overflow-hidden">
       <div class="absolute inset-0 bg-[#F0F4F8]"></div>
