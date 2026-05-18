@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import urgemyletras from '../assets/urgemyletras.png'
 import navBar from '../components/navBar.vue'
 import ModalUrgenciologo from '../components/ModalUrgenciologo.vue'
+import ModalEmpresas from '../components/ModalEmpresas.vue'
 
 const router = useRouter()
 

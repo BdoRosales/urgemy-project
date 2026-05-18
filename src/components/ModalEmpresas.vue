@@ -5,7 +5,7 @@
       class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
       @click.self="emit('close')"
     >
-      <div class="relative w-full max-w-[1000px] h-[90vh] md:h-auto max-h-[640px] bg-[#111827] text-white rounded-[24px] shadow-2xl overflow-hidden flex flex-col md:flex-row border border-white/10">
+      <div class="relative w-full max-w-[1000px] h-[90vh] md:h-[640px] bg-[#111827] text-white rounded-[24px] shadow-2xl overflow-hidden flex flex-col md:flex-row border border-white/10">
         
         <button 
           @click="emit('close')" 
@@ -18,9 +18,9 @@
 
         <div class="relative w-full md:w-[40%] h-[200px] md:h-auto bg-cover bg-center shrink-0 flex items-end">
           <img 
-            src="https://res.cloudinary.com/dhtcufz7z/image/upload/v1768335146/shutterstock_2652435837_zuvvim.jpg" 
-            alt="Médico Urgemy" 
-            class="absolute inset-0 w-full h-full object-cover object-center"
+            src="https://res.cloudinary.com/dhtcufz7z/image/upload/v1768333827/2_hl7dqy.jpg" 
+            alt="Beneficios Empresa" 
+            class="absolute inset-0 w-full h-full object-cover object-top"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-[#111827] via-transparent to-transparent md:hidden"></div>
         </div>
@@ -28,10 +28,10 @@
         <div class="w-full md:w-[60%] p-6 md:p-8 flex flex-col justify-between overflow-y-auto custom-scrollbar">
           <div>
             <h2 class="text-xl md:text-2xl font-bold text-white mb-2 pr-8 [text-wrap:balance]">
-              ¿Por qué un Urgenciólogo y no un Médico General?
+              Beneficios para tu Empresa
             </h2>
             <p class="text-xs md:text-sm text-gray-400 mb-6 leading-relaxed">
-              En Urgemy decidimos trabajar exclusivamente con médicos urgenciólogos porque son los especialistas mejor preparados para evaluar problemas de salud en el momento en que ocurren. Aquí te lo explicamos con puntos muy claros:
+              La salud de tus empleados también es productividad. Urgemy ofrece atención médica inmediata por urgenciólogos 24/7, reduciendo riesgos, costos y tiempos perdidos, mientras protege a tu equipo y mejora la eficiencia de tu empresa. Aquí tienes los beneficios reales y comprobables para tu organización:
             </p>
 
             <div class="space-y-3 border-t border-b border-gray-800/60 py-4">
@@ -47,7 +47,7 @@
                   class="grid transition-all duration-300 ease-in-out text-xs md:text-sm text-gray-400"
                   :class="itemActivo === item.id ? 'grid-rows-[1fr] opacity-100 mt-2' : 'grid-rows-[0fr] opacity-0 overflow-hidden'"
                 >
-                  <div class="overflow-hidden leading-relaxed space-y-2 whitespace-pre-line pl-1">
+                  <div class="overflow-hidden leading-relaxed space-y-2 whitespace-pre-line">
                     {{ item.contenido }}
                   </div>
                 </div>
@@ -56,17 +56,20 @@
           </div>
 
           <div class="flex items-center justify-between mt-6 pt-4 gap-4 flex-wrap md:flex-nowrap border-t border-gray-800/60">
-            <div class="text-[11px] text-gray-400 max-w-sm leading-tight">
-              Mientras otras plataformas usan médicos generales, Urgemy va un paso adelante:<br>
-              <span class="text-white font-semibold">Urgemy = urgenciólogos 24/7:</span> mayor precisión y más seguridad.
-            </div>
+            <span class="text-[11px] text-gray-500 whitespace-nowrap">© 2026 Urgemy</span>
             
-            <div class="flex items-center gap-2 w-full md:w-auto justify-end shrink-0">
+            <div class="flex items-center gap-2 w-full md:w-auto justify-end">
               <button 
                 @click="emit('close')"
-                class="px-5 py-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 font-bold text-xs md:text-sm text-gray-300 hover:text-white transition-colors cursor-pointer w-full md:w-auto text-center"
+                class="px-5 py-2.5 rounded-xl bg-gray-800 hover:bg-gray-700 font-bold text-xs md:text-sm text-gray-300 hover:text-white transition-colors cursor-pointer w-1/2 md:w-auto text-center"
               >
                 Cerrar
+              </button>
+              <button 
+                @click="emit('goToEmpresarial')"
+                class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#22d3ee] to-[#0284c7] font-bold text-xs md:text-sm text-white shadow-lg shadow-sky-500/10 hover:brightness-110 transition-all cursor-pointer w-1/2 md:w-auto text-center"
+              >
+                Ver planes empresariales
               </button>
             </div>
           </div>
@@ -84,7 +87,7 @@ const props = defineProps({
   isOpen: Boolean
 })
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(['close', 'goToEmpresarial'])
 
 const itemActivo = ref(1)
 
@@ -111,33 +114,18 @@ onUnmounted(() => {
 const puntos = [
   {
     id: 1,
-    titulo: '1. Los urgenciólogos están entrenados para salvar vidas',
-    contenido: 'A diferencia de un médico general, un urgenciólogo está especializado en:\n• Reconocer señales de alarma desde el primer minuto.\n• Identificar si un síntoma puede volverse una emergencia.\n• Actuar con rapidez y criterio clínico especializado.\nSon expertos en tomar decisiones rápidas y seguras.'
+    titulo: '1. Reduce la prima de riesgo ante el IMSS',
+    contenido: 'La atención inmediata y especializada de Urgemy permite mitigar riesgos en incidentes laborales menores, evitando que escalen a problemas mayores y ayudando a documentar adecuadamente cada caso, impactando positivamente en el control interno de siniestralidad de tu empresa.'
   },
   {
     id: 2,
-    titulo: '2. Saben distinguir entre una urgencia y una emergencia',
-    contenido: 'La mayoría de problemas de salud no requieren ir al hospital, pero sí necesitan una valoración profesional inmediata. Un urgenciólogo:\n• Clasifica la gravedad de tus síntomas.\n• Evita que te asustes de más.\n• Te alerta a tiempo si necesitas acudir a un hospital, reduciendo riesgos y gastos innecesarios.'
+    titulo: '2. Disminuye el ausentismo y aumenta la productividad',
+    contenido: 'Muchos empleados faltan por problemas menores que pudieron resolverse desde casa en minutos.\n\nCon Urgemy:\n• Obtienen atención de urgencias digital en menos de 3 minutos.\n• Reciben indicaciones claras para continuar su jornada.\n• Evitan traslados innecesarios a consultorios u hospitales.\n\nEfecto en la empresa: Menos tiempo perdido + empleados atendidos a tiempo = operación más estable y eficiente.'
   },
   {
     id: 3,
-    titulo: '3. Su evaluación es mucho más precisa',
-    contenido: 'Un urgenciólogo:\n• Evalúa síntomas complejos cuando se presentan "fuera de control".\n• Sabe interpretar dolor, presión, mareos, fiebre o dificultad para respirar.\n• Determina si se trata de algo simple o algo que necesita intervención inmediata. Un médico general no cuenta con este enfoque de primera línea crítica.'
-  },
-  {
-    id: 4,
-    titulo: '4. Están acostumbrados a atender a distancia',
-    contenido: 'La medicina de urgencias tiene protocolos muy específicos para valorar a un paciente de manera no presencial.\n\nPor eso pueden:\n• Guiarte con preguntas precisas y estructuradas.\n• Identificar riesgos a través de la pantalla.\n• Solicitar maniobras o mediciones simples que ayudan al diagnóstico.'
-  },
-  {
-    id: 5,
-    titulo: '5. Reducen hospitalizaciones innecesarias',
-    contenido: 'Muchos casos llegan a salas de urgencias físicas sin necesitarlo. Los urgenciólogos saben identificar perfectamente:\n• Qué sí amerita un traslado al hospital.\n• Qué se puede resolver perfectamente en casa.\n• Qué requiere seguimiento digital continuo. Esto te ahorra dinero, tiempo y estrés.'
-  },
-  {
-    id: 6,
-    titulo: '6. En resumen: te dan más seguridad',
-    contenido: 'Un urgenciólogo te da tranquilidad real, porque es el especialista que más experiencia tiene en casos inesperados, dolores repentinos o síntomas que asustan y requieren decisiones inmediatas.'
+    titulo: '3. Prestación 100% deducible y fiscalmente inteligente',
+    contenido: 'Urgemy permite:\n• Emitir factura deducible mes con mes.\n• Integrarse como un beneficio dentro de previsión social.\n• Aplicar acreditamientos que optimizan el pago de ISR.\n\nEsto convierte un gasto obligatorio en una inversión fiscalmente eficiente que también mejora el bienestar laboral.'
   }
 ]
 </script>
